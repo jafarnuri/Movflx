@@ -20,13 +20,6 @@
                     <div class="x_content">
 
 
-                        @if(Session::has("status"))
-                            <br>
-                            <div class="alert alert-success">
-                                {{Session::get('status')}}
-
-                            </div>
-                        @endif
 
 
                         <!-- Div İçerik Başlangıç -->

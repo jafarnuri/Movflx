@@ -6,7 +6,7 @@
 <!-- main-area -->
 <main>
   <!-- breadcrumb-area -->
-  <section class="breadcrumb-area breadcrumb-bg" data-background="img/bg/breadcrumb_bg.jpg">
+  <section class="breadcrumb-area breadcrumb-bg" data-background="{{asset('/')}}frond/img/bg/breadcrumb_bg.jpg">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -30,7 +30,7 @@
   <!-- breadcrumb-area-end -->
 
   <!-- movie-area -->
-  <section class="movie-area movie-bg" data-background="img/bg/movie_bg.jpg">
+  <section class="movie-area movie-bg" data-background="{{asset('/')}}frond/img/bg/movie_bg.jpg">
     <div class="container">
       <div class="row align-items-end mb-60">
         <div class="col-lg-6">
@@ -61,7 +61,7 @@
         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
           <div class="movie-item movie-item-three mb-50">
             <div class="movie-poster">
-              <img src="img/poster/ucm_poster01.jpg" alt="" />
+              <img src="{{asset('/')}}frond/img/poster/ucm_poster01.jpg" alt="" />
               <ul class="overlay-btn">
                 <li class="rating">
                   <i class="fas fa-star"></i>
@@ -100,7 +100,7 @@
         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
           <div class="movie-item movie-item-three mb-50">
             <div class="movie-poster">
-              <img src="img/poster/ucm_poster02.jpg" alt="" />
+              <img src="{{asset('/')}}frond/img/poster/ucm_poster02.jpg" alt="" />
               <ul class="overlay-btn">
                 <li class="rating">
                   <i class="fas fa-star"></i>
@@ -139,7 +139,7 @@
         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
           <div class="movie-item movie-item-three mb-50">
             <div class="movie-poster">
-              <img src="img/poster/ucm_poster03.jpg" alt="" />
+              <img src="{{asset('/')}}frond/img/poster/ucm_poster03.jpg" alt="" />
               <ul class="overlay-btn">
                 <li class="rating">
                   <i class="fas fa-star"></i>
@@ -178,7 +178,7 @@
         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
           <div class="movie-item movie-item-three mb-50">
             <div class="movie-poster">
-              <img src="img/poster/ucm_poster04.jpg" alt="" />
+              <img src="{{asset('/')}}frond/img/poster/ucm_poster04.jpg" alt="" />
               <ul class="overlay-btn">
                 <li class="rating">
                   <i class="fas fa-star"></i>
@@ -217,7 +217,7 @@
         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
           <div class="movie-item movie-item-three mb-50">
             <div class="movie-poster">
-              <img src="img/poster/ucm_poster05.jpg" alt="" />
+              <img src="{{asset('/')}}frond/img/poster/ucm_poster05.jpg" alt="" />
               <ul class="overlay-btn">
                 <li class="rating">
                   <i class="fas fa-star"></i>
@@ -256,7 +256,7 @@
         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-two">
           <div class="movie-item movie-item-three mb-50">
             <div class="movie-poster">
-              <img src="img/poster/ucm_poster06.jpg" alt="" />
+              <img src="{{asset('/')}}frond/img/poster/ucm_poster06.jpg" alt="" />
               <ul class="overlay-btn">
                 <li class="rating">
                   <i class="fas fa-star"></i>
@@ -295,7 +295,7 @@
         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
           <div class="movie-item movie-item-three mb-50">
             <div class="movie-poster">
-              <img src="img/poster/ucm_poster07.jpg" alt="" />
+              <img src="{{asset('/')}}frond/img/poster/ucm_poster07.jpg" alt="" />
               <ul class="overlay-btn">
                 <li class="rating">
                   <i class="fas fa-star"></i>
@@ -334,7 +334,7 @@
         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-two">
           <div class="movie-item movie-item-three mb-50">
             <div class="movie-poster">
-              <img src="img/poster/ucm_poster08.jpg" alt="" />
+              <img src="{{asset('/')}}frond/img/poster/ucm_poster08.jpg" alt="" />
               <ul class="overlay-btn">
                 <li class="rating">
                   <i class="fas fa-star"></i>
@@ -391,7 +391,7 @@
   <!-- movie-area-end -->
 
   <!-- newsletter-area -->
-  <section class="newsletter-area newsletter-bg" data-background="img/bg/newsletter_bg.jpg">
+  <section class="newsletter-area newsletter-bg" data-background="{{asset('/')}}frond/img/bg/newsletter_bg.jpg">
     <div class="container">
       <div class="newsletter-inner-wrap">
         <div class="row align-items-center">

@@ -33,4 +33,24 @@ class FrondController extends Controller
     {
         return view("frond.tv-show");
     }
+
+    public function mobie_details()
+    {
+        return view("frond.mobie-details");
+    }
+
+    public function blog_details()
+    {
+        return view("frond.blog-details");
+    }
+
+    public function login()
+    {
+        return view("admin.login");
+    }
+
+    public function register()
+    {
+        return view('admin.register');
+    }
 }

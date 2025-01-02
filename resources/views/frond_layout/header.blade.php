@@ -46,7 +46,7 @@
                                     </li>
 
                                     <li class="header-btn">
-                                        <a href="#" class="btn">Sign In</a>
+                                        <a href="{{route("login")}}" class="btn">Sign In</a>
                                     </li>
                                 </ul>
                             </div>

@@ -60,7 +60,7 @@
                   </li>
                 </ul>
                 <div class="read-more">
-                  <a href="blog-details.html">Read More <i class="fas fa-angle-double-right"></i></a>
+                  <a href="{{route('blog_details')}}">Read More <i class="fas fa-angle-double-right"></i></a>
                 </div>
               </div>
             </div>

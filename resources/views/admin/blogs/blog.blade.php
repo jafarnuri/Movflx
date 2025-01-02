@@ -17,7 +17,7 @@
                         <div class="clearfix"></div>
 
                         <div align="right">
-                            <a href=""><button class="btn btn-success btn-xs">Add
+                            <a href="{{route('admin.blog_create')}}"><button class="btn btn-success btn-xs">Add
                                     New</button></a>
 
                         </div>

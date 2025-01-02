@@ -6,7 +6,7 @@
 <!-- main-area -->
 <main>
   <!-- breadcrumb-area -->
-  <section class="breadcrumb-area breadcrumb-bg" data-background="img/bg/breadcrumb_bg.jpg">
+  <section class="breadcrumb-area breadcrumb-bg" data-background="{{asset('/')}}frond/img/bg/breadcrumb_bg.jpg">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -30,7 +30,7 @@
   <!-- breadcrumb-area-end -->
 
   <!-- pricing-area -->
-  <section class="pricing-area pricing-bg" data-background="img/bg/pricing_bg.jpg">
+  <section class="pricing-area pricing-bg" data-background="{{asset('/')}}frond/img/bg/pricing_bg.jpg">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -142,7 +142,7 @@
   <!-- pricing-area-end -->
 
   <!-- newsletter-area -->
-  <section class="newsletter-area newsletter-bg" data-background="img/bg/newsletter_bg.jpg">
+  <section class="newsletter-area newsletter-bg" data-background="{{asset('/')}}frond/img/bg/newsletter_bg.jpg">
     <div class="container">
       <div class="newsletter-inner-wrap">
         <div class="row align-items-center">

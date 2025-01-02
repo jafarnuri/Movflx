@@ -60,10 +60,13 @@
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 </li>
                                 <li>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                </li>
+                                <li>
                                     <a href="#"><i class="fab fa-twitter"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
