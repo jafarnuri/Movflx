@@ -18,14 +18,6 @@
                     </div>
                     <div class="x_content">
 
-                        @if(Session::has("status"))
-                            <br>
-                            <div class="alert alert-success">
-                                {{Session::get('status')}}
-
-                            </div>
-                        @endif
-
 
                         <!-- / => en kök dizine çık ... ../ bir üst dizine çık -->
                         <form action="" method="POST" id="demo-form2" data-parsley-validate
@@ -34,21 +26,21 @@
                             @csrf
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Instagram
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Facebook
                                     <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="first-name" name="title" value="" required="required"
+                                    <input type="text" id="first-name" name="facebook" value="" required="required"
                                         class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Facebook
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Instagram
                                     <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="first-name" name="content" value="" required="required"
+                                    <input type="text" id="first-name" name="instagram" value="" required="required"
                                         class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
@@ -58,7 +50,27 @@
                                     <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="first-name" name="content" value="" required="required"
+                                    <input type="text" id="first-name" name="twitter" value="" required="required"
+                                        class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Youtube
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="first-name" name="youtube" value="" required="required"
+                                        class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Linkedin
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="first-name" name="linkedin" value="" required="required"
                                         class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>

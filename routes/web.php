@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(FrondController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/login', 'login')->name('login');
-    Route::get('/register', 'register')->name('login');
+    Route::get('/register', 'register')->name('register');
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/movie', 'movie')->name('movie');

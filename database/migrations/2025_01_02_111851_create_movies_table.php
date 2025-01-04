@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->string('poster_image')->nullable(); // Film poster şəkli
             $table->string('trailer_url')->nullable(); // Film trailer URL-si
             $table->string('movie_url')->nullable(); // Filmin öz URL-si
+            $table->boolean('status'); // status
             $table->timestamps(); // Yaradılma və yenilənmə tarixləri
         });
     }
