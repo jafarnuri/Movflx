@@ -21,14 +21,14 @@
       <div class="collapse" id="form-elements">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="">Social Network</a>
+            <a class="nav-link" href="{{route('admin.social_show')}}">Social Network</a>
           </li>
         </ul>
       </div>
       <div class="collapse" id="form-elements">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link" href="">Communication</a>
+            <a class="nav-link" href="{{route('admin.communication_show')}}">Communication</a>
           </li>
         </ul>
       </div>
@@ -71,6 +71,7 @@
         <span class="menu-title">Movies</span>
       </a>
     </li>
+
 
   </ul>
 </nav>

@@ -25,7 +25,7 @@
 
             <div class="form-content">
                 <h2>SIGNUP</h2>
-                <form action="{{ route('register_user') }}" method="POST">
+                <form action="{{route('admin.register_user')}}" method="POST">
                     @csrf
 
                     <!-- Name Sahəsi -->
@@ -79,10 +79,6 @@
                     <button type="submit">Sign Up</button>
                 </form>
 
-                <div class="bottom-link">
-                    Already have an account?
-                    <a href="/login" id="login-link">Login</a>
-                </div>
             </div>
         </div>
     </div>

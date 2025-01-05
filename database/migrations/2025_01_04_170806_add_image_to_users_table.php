@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id(); // Kateqoriya üçün unikal ID
-            $table->string('name'); // Kateqoriyanın adı
-            $table->boolean('status'); // Status
-            $table->timestamps(); // Yaradılma və yenilənmə tarixləri
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('image')->nullable(); // Image sahəsi əlavə olunur
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

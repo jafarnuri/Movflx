@@ -46,18 +46,11 @@
                         @enderror
                     </div>
 
-                    <!-- Şifrəni unutmuşam linki -->
-                    <a href="" class="forgot-pass-link">Forgot password?</a>
-
                     <!-- Giriş düyməsi -->
                     <button type="submit">Log In</button>
                 </form>
 
 
-                <div class="bottom-link">
-                    Don't have an account?
-                    <a href="{{route('register')}}" id="signup-link">Signup</a>
-                </div>
             </div>
         </div>
 

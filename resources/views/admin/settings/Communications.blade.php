@@ -19,7 +19,7 @@
                     <div class="x_content">
 
                         <!-- / => en kök dizine çık ... ../ bir üst dizine çık -->
-                        <form action="" method="POST" id="demo-form2" data-parsley-validate
+                        <form action="{{route('admin.communication_update')}}" method="POST" id="demo-form2" data-parsley-validate
                             class="form-horizontal form-label-left" enctype="multipart/form-data">
                             @csrf
 
@@ -28,7 +28,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Email <span
                                         class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="first-name" name="email" value="" placeholder=""
+                                    <input type="email" id="first-name" name="email" value="{{$communication->email}}" placeholder=""
                                         required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
@@ -36,10 +36,10 @@
 
                             <!-- Phone Field -->
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Email <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Phone <span
                                         class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="first-name" name="phone" value="" placeholder=""
+                                    <input type="text" id="first-name" name="phone" value="{{$communication->phone}}" placeholder=""
                                         required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Address <span
                                         class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="first-name" name="address" value="" placeholder=""
+                                    <input type="text" id="first-name" name="address" value="{{$communication->address}}" placeholder=""
                                         required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>

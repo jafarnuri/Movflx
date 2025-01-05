@@ -12,12 +12,12 @@
           <div class="x_title">
             <br>
             <br>
-            <h2>Cars</h2>
+            <h2>Users</h2>
 
             <div class="clearfix"></div>
 
             <div align="right">
-              <a href=""><button class="btn btn-success btn-xs">Add New</button></a>
+              <a href="{{route('admin.register')}}"><button class="btn btn-success btn-xs">Add New</button></a>
 
             </div>
           </div>
@@ -41,22 +41,9 @@
               <thead>
                 <tr>
                   <th>Nomber</th>
-                  <th>Make</th>
-                  <th>Model</th>
-                  <th>Price_per_day</th>
-                  <th>Year</th>
-                  <th>Mileage</th>
-                  <th>Transmission</th>
-                  <th>Seats</th>
-                  <th>Luggage</th>
-                  <th>Fuel</th>
-                  <th>Description</th>
-                  <th>Status</th>
                   <th>Image</th>
-
-                  <th>
-                    <center>Update</center>
-                  </th>
+                  <th>Name</th>
+                  <th>Email</th>
                   <th>
                     <center>Delete</center>
                   </th>
@@ -65,33 +52,23 @@
 
               <tbody>
 
-             
-          <tr>
-            <td width="20"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+             @foreach ($users as $user)
+             <tr>
+            <td width="20">{{$say}}</td>
             <td><img src="" alt=""> </td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>
+       
             <td>
-            <center><a href=""><button
-                class="btn btn-primary btn-xs"><i></i></button></a></center>
-            </td>
-            <td>
-            <center><a href=""><button
+            <center><a href="{{ route('admin.user.send_confirmation_email', $user->id) }}"><button
                 class="btn btn-danger btn-xs"><i></i></button></a>
             </center>
             </td>
           </tr>
           <input type="hidden" {{$say++}}>
-        @endforeach
+      
+             @endforeach
+   
               </tbody>
             </table>
 

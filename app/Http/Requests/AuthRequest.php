@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -13,6 +14,7 @@ class AuthRequest extends FormRequest
     public function rules()
     {
         return [
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
@@ -20,7 +22,6 @@ class AuthRequest extends FormRequest
             'policy' => 'accepted',  // Terms & Conditions qəbulunu təmin edirik
         ];
     }
-
 
     public function messages()
     {
