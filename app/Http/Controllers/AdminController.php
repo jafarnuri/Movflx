@@ -29,7 +29,8 @@ class AdminController extends Controller
     public function user_show()
     {
         $users = User::all();
-        return view('admin.users.users',compact('users'));
+
+        return view('admin.users.users', compact('users'));
     }
 
     public function contact_show()

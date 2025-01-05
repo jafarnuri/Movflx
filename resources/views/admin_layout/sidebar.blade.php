@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item">
-      <a class="nav-link" href="">
+      <a class="nav-link" href="{{route('admin.home')}}">
         <i class="fa fa-bars"></i>
         <span class="menu-title">Home</span>
       </a>
@@ -35,6 +35,34 @@
 
     </li>
 
+
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#form-element" aria-expanded="false"
+        aria-controls="form-elements">
+
+
+        <i class="fa fa-tags"></i>
+        <span class="menu-title"> Categories</span>
+        <i class="menu-arrow"></i>
+      </a>
+
+
+      <div class="collapse" id="form-element">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.movcategory')}}">Movie Category</a>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse" id="form-element">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.blogcategory')}}">Blog Category</a>
+          </li>
+        </ul>
+      </div>
+
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="{{route('admin.user_show')}}">
         <i class="fa fa-users"></i>

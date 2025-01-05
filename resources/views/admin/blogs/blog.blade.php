@@ -12,7 +12,7 @@
                     <div class="x_title">
                         <br>
                         <br>
-                        <h2>Cars</h2>
+                        <h2>Blogs</h2>
 
                         <div class="clearfix"></div>
 
@@ -36,10 +36,12 @@
                                 <tr>
                                     <th>Nomber</th>
                                     <th>Image</th>
-                                    <th>Category</th>
                                     <th>Title</th>
-                                    <th>Description</th>
-                                    <th>Status</th>
+                                    <th>content</th>
+                                    <th>author</th>
+                                    <th>likes</th>
+                                    <th>comments_count</th>
+                                    <th>published_at</th>
                                     <th>Action</th>
 
 
@@ -57,7 +59,8 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-
+                                    <td></td>
+                                    <td></td>
 
                                     <td>
                                         <a href="" class="btn btn-info">Edit</a>

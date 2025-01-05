@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace App\Mail;
 
 use Illuminate\Mail\Mailable;
@@ -18,6 +19,6 @@ class DeleteUserConfirmation extends Mailable
     public function build()
     {
         return $this->subject('Hesabınızı Silmək üçün Təsdiq Kodu')
-                    ->view('emails.delete_user_confirmation');
+            ->view('emails.delete_user_confirmation');
     }
 }

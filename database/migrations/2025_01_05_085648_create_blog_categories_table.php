@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('blog_categories', function (Blueprint $table) {
             $table->id(); // Kateqoriya üçün unikal ID
             $table->string('name'); // Kateqoriyanın adı
             $table->boolean('status'); // Status
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('blog_categories');
     }
 };

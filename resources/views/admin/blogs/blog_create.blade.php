@@ -21,74 +21,58 @@
 
                         <form action="" method="POST" enctype="multipart/form-data">
                             @csrf
+                             <!-- Title -->
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" name="title" class="form-control" required>
+                                
+                            </div>
+                            
+                            <!-- Slug -->
+                            <div class="form-group">
+                                <label for="slug">Slug</label>
+                                <input type="hidden" name="slug" class="form-control">
 
-
+                            </div>
 
                             <!-- Category -->
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kategori
-                                    Seç<span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Select Category: <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-6">
 
                                     <select class="select2_multiple form-control" name="category_id">
 
                                         <option value=""></option>
-
+                                        
                                     </select>
                                 </div>
                             </div>
-                            <!-- Title (Languages) -->
+                           
+                           
+
                             <div class="form-group">
-                                <label for="title_en">{{__('msg.title')}} (English)</label>
-                                <input type="text" name="" class="form-control" required>
+                                <label for="content">Content</label>
+                                <textarea name="content" class="form-control" required></textarea>
 
                             </div>
 
                             <div class="form-group">
-                                <label for="title_az">{{__('msg.title')}} (Azerbaijani)</label>
-                                <input type="text" name="" class="form-control" required>
-
-                            </div>
-
-                            <!-- Description -->
-                            <div class="form-group">
-                                <label for="description_en">{{__('msg.description')}} (English)</label>
-                                <textarea name="" class="form-control" required></textarea>
-
-                            </div>
-
-                            <div class="form-group">
-                                <label for="description_az">{{__('msg.description')}} (Azerbaijani)</label>
-                                <textarea name="" class="form-control" required></textarea>
-
-                            </div>
-
-                            <!-- Slug -->
-                            <div class="form-group">
-                                <label for="slug">{{__('msg.slug')}}@lang('slug')</label>
-                                <input type="hidden" name="slug" class="form-control">
+                                <label for="content">Author</label>
+                                <textarea name="author" class="form-control" required></textarea>
 
                             </div>
 
                             <!-- Image -->
                             <div class="form-group">
-                                <label for="image">{{__('msg.image')}}</label>
+                                <label for="image">Image</label>
                                 <input type="file" name="image" class="form-control">
 
                             </div>
 
-                            <!-- Status -->
-                            <div class="form-group">
-                                <label for="status">{{__('msg.status')}}</label>
-                                <select name="status" class="form-control" required>
-                                    <option value="1">@lang('active')</option>
-                                    <option value="0">@lang('inactive')</option>
-                                </select>
+                 
 
-                            </div>
-
-                            <button type="submit" class="btn btn-primary">{{__('msg.save')}}</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </form>
 
                     </div>

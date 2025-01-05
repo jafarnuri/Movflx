@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('movies', function (Blueprint $table) {
+         
             $table->id(); // Primary key
             $table->string('title'); // Film başlığı
             $table->string('subtitle')->nullable(); // Film alt başlığı
-            $table->foreignId('category_id')->constrained('categories'); // Film kateqoriyası (xarici açar)
+            $table->foreignId('category_id')->constrained('movie_categories'); // Film kateqoriyası (xarici açar)
             $table->string('release_year'); // Buraxılış ili
             $table->string('quality')->nullable(); // Keyfiyyət (HD, 4K vs.)
             $table->integer('duration')->nullable(); // Film müddəti (dəqiqə ilə)
@@ -25,6 +26,7 @@ return new class extends Migration
             $table->string('movie_url')->nullable(); // Filmin öz URL-si
             $table->boolean('status'); // status
             $table->timestamps(); // Yaradılma və yenilənmə tarixləri
+         
         });
     }
 

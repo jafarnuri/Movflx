@@ -12,12 +12,12 @@
           <div class="x_title">
             <br>
             <br>
-            <h2>{{__('msg.categories')}}</h2>
+            <h2>Movies Category</h2>
 
             <div class="clearfix"></div>
 
             <div align="right">
-              <a href=""><button class="btn btn-success btn-xs">Add New</button></a>
+              <a href="{{route('admin.movcategory_create')}}"><button class="btn btn-success btn-xs">Add New</button></a>
 
             </div>
           </div>
@@ -32,26 +32,28 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>{{__('msg.number')}}</th>
-                  <th>{{__('msg.name')}}</th>
-                  <th>{{__('msg.status')}}</th>
-                  <th>{{__('msg.action')}}</th>
+                  <th>Number</th>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
 
               <tbody>
-              
+             @foreach ($category as $categories )
+             
+            
           <tr>
             <td width="20">{{$say}}</td>
-            <td></td>
-            <td></td>
+            <td>{{$categories->name}}</td>
+            <td>{{$categories->status}}</td>
             <td>
-            <a href="" class="btn btn-info">Edit</a>
-            <a href="" class="btn btn-danger" onclick="confirm('Are You Sure To Delete This Item?')">Delete</a>
+           
+            <a href="" class="btn btn-danger" >Delete</a>
             </td>
           </tr>
           <input type="hidden" {{$say++}}>
-        @endforeach
+          @endforeach 
               </tbody>
             </table>
 

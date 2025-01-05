@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrondController;
 use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
@@ -32,7 +33,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::get('/contact-show', 'contact_show')->name('admin.contact_show');
         Route::get('/user-show', 'user_show')->name('admin.user_show');
         Route::get('/register', 'register')->name('admin.register');
-       
 
     });
     Route::controller(SettingsController::class)->group(function () {
@@ -41,12 +41,24 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::get('/communication-show', 'communication_show')->name('admin.communication_show');
         Route::post('/communication-update', 'communication_update')->name('admin.communication_update');
     });
-    Route::post('/register_user', [AuthController::class, 'register_user'])->name('admin.register_user');
-// İstifadəçi silmək üçün testik kodu göndərmək
-Route::get('user/send-confirmation-email/{id}', [AuthController::class, 'sendConfirmationEmail'])
-    ->name('admin.user.send_confirmation_email');
 
-// İstifadəçi silməni təsdiq etmək üçün formu göndərmək
-Route::post('user/confirm-delete/{id}', [AuthController::class, 'confirmDelete'])
-    ->name('admin.user.confirm_delete');
+    Route::controller(AuthController::class)->group(function () {
+        Route::get('/register_user', 'register_user')->name('admin.register_user');
+        // İstifadəçi silmək üçün testik kodu göndərmək
+        Route::post('user/send-confirmation-email/{id}', 'sendConfirmationEmail')
+            ->name('admin.user.send_confirmation_email');
+        // İstifadəçi silməni təsdiq etmək üçün formu göndərmək
+        Route::post('user/confirm-delete/{id}', 'confirmDelete')
+            ->name('admin.user.confirm_delete');
+    });
+
+    Route::controller(CategoryController::class)->group(function () {
+        Route::get('/movcategory-show', 'movcategory')->name('admin.movcategory');
+        Route::get('/movcategory-create', 'movcategory_create')->name('admin.movcategory_create');
+        Route::post('/movcategory-store', 'movcategory_store')->name('admin.movcategory_store');
+        Route::get('/blogcategory-show', 'blogcategory')->name('admin.blogcategory');
+        Route::get('/blogcategory-create', 'blogcategory_create')->name('admin.blogcategory_create');
+        Route::post('/blogcategory-store', 'blogcategory_store')->name('admin.blogcategory_store');
+    });
+
 });

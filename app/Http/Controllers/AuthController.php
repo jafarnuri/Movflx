@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
 use App\Http\Requests\LoginRequest;
+use App\Mail\DeleteUserConfirmation;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Mail\DeleteUserConfirmation;
 
 class AuthController extends Controller
 {
@@ -56,43 +56,42 @@ class AuthController extends Controller
     public function sendConfirmationEmail($id)
     {
         $user = User::find($id);
-    
+
         if ($user) {
             // Testik kodunu yaradın
             $confirmationCode = Str::random(32);
-    
+
             // Testik kodunu istifadəçinin məlumatlarına əlavə et
             $user->confirmation_code = $confirmationCode;
             $user->save();
-    
+
             // Default e-poçt ünvanını alırıq
-            $defaultEmail = env('DEFAULT_CONFIRMATION_EMAIL'); 
-    
+            $defaultEmail = env('DEFAULT_CONFIRMATION_EMAIL');
+
             // Testik kodunu göndəririk
             Mail::to($defaultEmail)->send(new DeleteUserConfirmation($confirmationCode));
-    
+
             return view('admin.users.confirm_delete', ['user' => $user]);
         }
-    
+
         return redirect()->route('admin.user_show')->with('error', 'İstifadəçi tapılmadı.');
     }
-    
+
     public function confirmDelete(Request $request, $id)
-{
-    $request->validate([
-        'confirmation_code' => 'required|string',
-    ]);
+    {
+        $request->validate([
+            'confirmation_code' => 'required|string',
+        ]);
 
-    $user = User::find($id);
+        $user = User::find($id);
 
-    if ($user && $user->confirmation_code === $request->input('confirmation_code')) {
-        // Testik kodu doğru daxil edildikdə istifadəçini silirik
-        $user->delete();
-        return redirect()->route('admin.user_show')->with('success', 'İstifadəçi uğurla silindi.');
+        if ($user && $user->confirmation_code === $request->input('confirmation_code')) {
+            // Testik kodu doğru daxil edildikdə istifadəçini silirik
+            $user->delete();
+
+            return redirect()->route('admin.user_show')->with('success', 'İstifadəçi uğurla silindi.');
+        }
+
+        return redirect()->route('admin.user_show')->with('error', 'Testik kodu səhvdir.');
     }
-
-    return redirect()->route('admin.user_show')->with('error', 'Testik kodu səhvdir.');
-}
-
-
 }
