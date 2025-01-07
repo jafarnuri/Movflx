@@ -30593,3 +30593,10 @@ div.tagsinput span.tag a {
 }
 
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
+.custom-image {
+  width: 150px !important;
+  height: 150px !important;
+  object-fit: cover !important;
+  border-radius: 0 !important;
+  border: 2px solid #ddd !important;
+}

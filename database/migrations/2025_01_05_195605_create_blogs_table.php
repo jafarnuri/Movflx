@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('author')->default('Admin'); // Müəllifin adı
             $table->integer('likes')->default(0); // Like sayı
             $table->integer('comments_count')->default(0); // Şərh sayı
-            $table->timestamp('published_at')->nullable(); // Blogun yayımlandığı tarix
+            $table->foreignId('category_id')->constrained('blog_categories')->cascadeOnDelete(); 
             $table->timestamps(); // Yaradılma və yenilənmə tarixləri
         });
     }

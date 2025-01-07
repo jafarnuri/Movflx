@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('blogs', function (Blueprint $table) {
-            $table->unsignedBigInteger('category_id')->nullable()->after('comments_count'); // Yeni sütun
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); // Xarici açar
+            $table->text('description')->nullable()->after('title'); // 'title' sütunundan sonra əlavə edir
+
         });
     }
 
@@ -23,8 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('blogs', function (Blueprint $table) {
-            $table->dropForeign(['category_id']); // Xarici açarı sil
-            $table->dropColumn('category_id'); // Sütunu sil
+            $table->dropColumn('description');
         });
     }
 };

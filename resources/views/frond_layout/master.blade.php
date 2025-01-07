@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- resources/views/layouts/app.blade.php -->
 <html class="no-js" lang="">
 
 <head>

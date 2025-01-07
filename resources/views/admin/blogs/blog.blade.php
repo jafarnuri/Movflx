@@ -2,6 +2,7 @@
 
 @section('contect')
 <!-- page content -->
+
 <div class="right_col" role="main">
     <div class="">
 
@@ -37,11 +38,11 @@
                                     <th>Nomber</th>
                                     <th>Image</th>
                                     <th>Title</th>
-                                    <th>content</th>
-                                    <th>author</th>
-                                    <th>likes</th>
-                                    <th>comments_count</th>
-                                    <th>published_at</th>
+                                    <th>Category</th>
+                                    <th>Content</th>
+                                    <th>Author</th>
+                                    <th>Likes</th>
+                                    <th>Comments_count</th>
                                     <th>Action</th>
 
 
@@ -49,27 +50,29 @@
                             </thead>
 
                             <tbody>
+ 
+@foreach ($blogs as $blog )
+<tr>
 
+<td width="20">{{$say}}</td>
+<td><img src="{{ Storage::url($blog->image) }}" alt="Blog Image" class="custom-image"> </td>
+<td>{{$blog->title}}</td>
+<td>{{$blog->category->name}}</td>
+<td>{{$blog->content}}</td>
+<td>{{$blog->author}}</td>
+<td>{{$blog->likes}}</td>
+<td>{{$blog->comments_count}}</td>
 
-                                <tr>
+<td>
+    <a href="{{ route('admin.blog_edit', $blog->id) }}" class="btn btn-info">Edit</a>
+    <a href="{{ route('admin.blog_delete', $blog->id) }}" class="btn btn-danger"
+        onclick="confirm('Are You Sure To Delete This Item?')">Delete</a>
+</td>
+</tr>
+<input type="hidden" {{$say++}}>
 
-                                    <td width="20"></td>
-                                    <td><img src="" alt="Blog Image"> </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-
-                                    <td>
-                                        <a href="" class="btn btn-info">Edit</a>
-                                        <a href="" class="btn btn-danger"
-                                            onclick="confirm('Are You Sure To Delete This Item?')">Delete</a>
-                                    </td>
-                                </tr>
-                                <input type="hidden" {{$say++}}>
-
+@endforeach
+  
                             </tbody>
                         </table>
 

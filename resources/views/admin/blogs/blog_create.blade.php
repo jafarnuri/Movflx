@@ -19,13 +19,13 @@
                     <div class="x_content">
 
 
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('admin.blog_store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-                             <!-- Title -->
-                            <div class="form-group">
+                               
+                               <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" name="title" class="form-control" required>
-                                
+                                <input type="text" name="title" class="form-control" value="" required>
+                         
                             </div>
                             
                             <!-- Slug -->
@@ -35,44 +35,42 @@
 
                             </div>
 
-                            <!-- Category -->
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Select Category: <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
+                         <!-- Category -->
+                           <div class="form-group">
+                                <label for="category_id">Select Category</label>
+                                <select name="category_id" class="form-control">
+                                    <option value="">-- Select Category --</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
 
-                                    <select class="select2_multiple form-control" name="category_id">
-
-                                        <option value=""></option>
-                                        
-                                    </select>
-                                </div>
                             </div>
                            
-                           
-
+<!-- Content -->
                             <div class="form-group">
                                 <label for="content">Content</label>
                                 <textarea name="content" class="form-control" required></textarea>
 
                             </div>
-
+<!-- Author -->
                             <div class="form-group">
                                 <label for="content">Author</label>
-                                <textarea name="author" class="form-control" required></textarea>
-
+                     
+                                <input type="text" name="author" class="form-control" required>
+                                
                             </div>
-
+                   
                             <!-- Image -->
                             <div class="form-group">
                                 <label for="image">Image</label>
-                                <input type="file" name="image" class="form-control">
+                                <input type="file" required name="image" class="form-control">
 
                             </div>
 
                  
 
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" name="" class="btn btn-primary">Save</button>
                         </form>
 
                     </div>

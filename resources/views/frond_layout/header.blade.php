@@ -26,9 +26,7 @@
                                     <li>
                                         <a href="{{route('tv_show')}}">tv show</a>
                                     </li>
-                                    <li>
-                                        <a href="{{route('pricing')}}">Pricing</a>
-                                    </li>
+                             
                                     <li class="menu-item-has-children">
                                         <a href="{{route('blog')}}">blog</a>
 

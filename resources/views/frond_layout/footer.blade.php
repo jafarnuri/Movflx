@@ -5,7 +5,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3">
                         <div class="footer-logo">
-                            <a href="index.html"><img src="{{asset('/')}}frond/img/logo/logo.png" alt="" /></a>
+                            <a href="{{route('home')}}"><img src="{{asset('/')}}frond/img/logo/logo.png" alt="" /></a>
                         </div>
                     </div>
                     <div class="col-lg-9">
@@ -13,7 +13,7 @@
                             <nav>
                                 <ul class="navigation">
                                     <li>
-                                        <a href="index.html">Home</a>
+                                        <a href="{{route('home')}}">Home</a>
                                     </li>
                                     <li>
                                         <a href="index.html">Movie</a>
@@ -57,19 +57,19 @@
                         <div class="footer-social">
                             <ul>
                                 <li>
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="{{$socialLinks->facebook}}"><i class="fab fa-facebook-f"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="{{$socialLinks->instagram}}"><i class="fab fa-instagram"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="{{$socialLinks->twitter}}"><i class="fab fa-twitter"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                    <a href="{{$socialLinks->youtube}}"><i class="fab fa-youtube"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="{{$socialLinks->linkedin}}"><i class="fab fa-linkedin-in"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -84,9 +84,9 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="copyright-text">
                         <p>
-                            Copyright &copy; 2021. All Rights Reserved
+                            Copyright &copy; 2025. All Rights Reserved
                             By
-                            <a href="index.html">Movflx</a>
+                            <a href="{{route('home')}}">Movflx</a>
                         </p>
                     </div>
                 </div>

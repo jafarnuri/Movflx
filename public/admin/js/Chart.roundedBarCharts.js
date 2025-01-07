@@ -168,4 +168,6 @@ Chart.elements.Rectangle.prototype.draw = function() {
     if (borderWidth) {
         ctx.stroke();
     }
+
+    
 };

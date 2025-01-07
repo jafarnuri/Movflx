@@ -47,4 +47,6 @@ $category = BlogCategory::all();
 
         return redirect()->route('admin.blogcategory_create');
     }
+
+    
 }

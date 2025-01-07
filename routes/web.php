@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrondController;
 use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
@@ -23,14 +25,15 @@ Route::post('/login_user', [AuthController::class, 'login_user'])->name('login_u
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+
+
+Route::post('/new-contact', [ContactController::class, 'new_contact'])->name('new_contact');
+
 Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     Route::controller(AdminController::class)->group(function () {
 
         Route::get('/dashboard', 'home')->name('admin.home');
-        Route::get('/blog-show', 'blog_show')->name('admin.blog_show');
-        Route::get('/blog-create', 'blog_create')->name('admin.blog_create');
-        Route::get('/contact-show', 'contact_show')->name('admin.contact_show');
         Route::get('/user-show', 'user_show')->name('admin.user_show');
         Route::get('/register', 'register')->name('admin.register');
 
@@ -60,5 +63,19 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::get('/blogcategory-create', 'blogcategory_create')->name('admin.blogcategory_create');
         Route::post('/blogcategory-store', 'blogcategory_store')->name('admin.blogcategory_store');
     });
+
+    Route::controller(BlogController::class)->group(function () {
+        Route::get('/blog-show', 'blog_show')->name('admin.blog_show');
+        Route::get('/blog-create', 'blog_create')->name('admin.blog_create');
+        Route::post('/blog-store', 'blog_store')->name('admin.blog_store');
+        Route::get('/blog-delete/{id}', 'delete')->name('admin.blog_delete');
+        Route::get('/blog-edit/{id}', 'blog_edit')->name('admin.blog_edit');
+        Route::put('/blog-update/{id}', 'blog_update')->name('admin.blog_update');
+    });
+
+    Route::get('/contact-show', [ContactController::class, 'contact_show'])->name('admin.contact_show');
+    Route::get('/contact-delete{id}', [ContactController::class, 'contact_delete'])->name('admin.contact_delete');
+    Route::post('/mark-as-read/{id}', [ContactController::class, 'markAsRead'])->name('admin.mark-as-read');
+
 
 });

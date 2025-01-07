@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\User;
 
 class AdminController extends Controller
@@ -16,15 +18,6 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-    public function blog_show()
-    {
-        return view('admin.blogs.blog');
-    }
-
-    public function blog_create()
-    {
-        return view('admin.blogs.blog_create');
-    }
 
     public function user_show()
     {
@@ -33,10 +26,6 @@ class AdminController extends Controller
         return view('admin.users.users', compact('users'));
     }
 
-    public function contact_show()
-    {
-        return view('admin.settings.contact');
-    }
 
     public function register()
     {

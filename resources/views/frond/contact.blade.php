@@ -15,7 +15,7 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="index.html">Home</a>
+                  <a href="{{route('home')}}">Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                   Contact
@@ -39,23 +39,24 @@
               <h5 class="title">Contact Form</h5>
             </div>
             <div class="contact-form">
-              <form action="#">
+              <form action="{{route('new_contact')}}" method="POST">
+                @csrf
                 <div class="row">
                   <div class="col-md-6">
-                    <input type="text" placeholder="You Name *" />
+                    <input type="text" name="name" placeholder="You Name *" />
                   </div>
                   <div class="col-md-6">
-                    <input type="email" placeholder="You  Email *" />
+                    <input type="email" name="email" placeholder="You  Email *" />
                   </div>
                 </div>
-                <input type="text" placeholder="Subject *" />
+                <input type="text" name="subject" placeholder="Subject *" />
                 <textarea name="message" placeholder="Type Your Message..."></textarea>
                 <button class="btn">Send Message</button>
               </form>
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-5">
+        <div class="col-xl-4 col-lg-5"> 
           <div class="widget-title mb-50">
             <h5 class="title">Information</h5>
           </div>
@@ -70,20 +71,17 @@
                   <div class="icon">
                     <i class="fas fa-map-marker-alt"></i>
                   </div>
-                  <p><span>Address :</span> W38 Park Road New York</p>
+                  <p><span>Address :</span> {{$communication->address}}</p>
                 </li>
                 <li>
                   <div class="icon"><i class="fas fa-phone-alt"></i></div>
-                  <p><span>Phone :</span> (09) 123 854 365</p>
+                  <p><span>Phone :</span> {{$communication->phone}}</p>
                 </li>
                 <li>
                   <div class="icon"><i class="fas fa-envelope"></i></div>
-                  <p>
-                    <span>Email :</span>
-                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                      data-cfemail="bdcec8cdcdd2cfc9fdd0d2cbdbd1c593ded2d0">[email&#160;protected]</a>
-                  </p>
+                  <p><span>Email :</span> {{$communication->email}}</p>
                 </li>
+   
               </ul>
             </div>
           </div>
@@ -122,4 +120,4 @@
 </main>
 <!-- main-area-end -->
 
-@endsection
+@endsection 

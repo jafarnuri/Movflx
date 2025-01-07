@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\BlogCategory;
+use App\Models\Communication;
+use App\Models\Social;
+
 class FrondController extends Controller
 {
     public function home()
@@ -11,12 +16,15 @@ class FrondController extends Controller
 
     public function contact()
     {
-        return view('frond.contact');
+        $communication = Communication::first();
+        return view('frond.contact', compact('communication'));
     }
 
     public function blog()
     {
-        return view('frond.blog');
+        $blogs=Blog::all();
+        $blogcategories = BlogCategory::withCount('blogs')->get();
+        return view('frond.blog', compact('blogcategories','blogs'));
     }
 
     public function movie()
@@ -47,5 +55,10 @@ class FrondController extends Controller
     public function login()
     {
         return view('admin.login');
+    }
+    public function show()
+    {
+        $socialLinks = Social::first(); // İlk sosial media məlumatını alırıq
+        return view('frond_layout.footer', compact('socialLinks')); // View'ə göndəririk
     }
 }
