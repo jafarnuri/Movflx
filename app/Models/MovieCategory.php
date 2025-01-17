@@ -13,4 +13,15 @@ class MovieCategory extends Model
         'name',
         'status',
     ];
+
+    protected $table = 'movie_categories';
+    public function blogs()
+    {
+        return $this->hasMany(Movie::class, 'category_id');
+    }
+
+    public function abouts()
+    {
+        return $this->hasMany(About::class, 'category_id');
+    }
 }

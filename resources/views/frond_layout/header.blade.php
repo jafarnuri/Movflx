@@ -43,9 +43,7 @@
                                                 class="fas fa-search"></i></a>
                                     </li>
 
-                                    <li class="header-btn">
-                                        <a href="{{route("login")}}" class="btn">Sign In</a>
-                                    </li>
+                             
                                 </ul>
                             </div>
                         </nav>

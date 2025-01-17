@@ -49,7 +49,7 @@
                                     <td>{{$contact->email}}</td>
                                     <td>{{$contact->name}}</td>
                                     <td>
-        {{ \Illuminate\Support\Str::limit($contact->message, 30) }}
+        {{ \Illuminate\Support\Str::limit($contact->message, 15) }}
         <a href="#" class="read-more" data-id="{{ $contact->id }}" data-message="{{ $contact->message }}">Read More</a>
     </td>  
                                     <td>

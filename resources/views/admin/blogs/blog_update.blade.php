@@ -39,7 +39,14 @@
                     class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
-
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Description
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" id="first-name" name="description" value="{{$blogs->description}}"
+                    class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Author
                 </label>
@@ -70,6 +77,17 @@
                   <input type="file" id="first-name" name="image" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
+
+              <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Status</label>
+                                    <select name="status" class="form-control">
+                                        <option value="1" selected>Active</option>
+                                        <option value="0">Passive</option>
+                                    </select>
+
+                                </div>
+                            </div>
 
               @if($blogs->image)
           <div class="col-md-6 col-sm-6 col-xs-12">

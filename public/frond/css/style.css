@@ -2958,3 +2958,76 @@ label {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+.image-container {
+  width: 100%;         /* Konteynerin eni */
+  height: auto;        /* Konteynerin hündürlüyü avtomatik olaraq şəkilə uyğun olacaq */
+  overflow: hidden;    /* Şəkilin konteynerdən çıxmasının qarşısını alır */
+}
+
+.custom-image {
+  width: 100%;         /* Şəkil konteynerin eninə uyğunlaşacaq */
+  height: auto;        /* Orijinal orantı qorunur */
+  object-fit: cover;   /* Şəkilin orantısını qoruyur */
+  object-position: center; /* Şəkilin mərkəzdən göstərilməsini təmin edir */
+}
+
+.custom-image[data-width] {
+  /* Dinamik ölçüləri təyin etmək üçün */
+  width: var(--img-width);
+  height: var(--img-height);
+}
+
+/* Dinamik ölçülər üçün data-width və data-height atributuna əsaslanır */
+.custom-image[data-width="690"] {
+  --img-width: 100%;
+  --img-height: auto;
+}
+
+.custom-image[data-width="400"] {
+  --img-width: 400px;
+  --img-height: 250px;
+}
+
+.custom-image[data-width="350"] {
+  --img-width: 350px;
+  --img-height: 300px;
+}
+
+.custom-image[data-width="200"] {
+  --img-width: 200px;
+  --img-height: 150px;
+}
+.blog-post-meta ul {
+  display: flex;
+  flex-wrap: wrap; /* Kiçik ekranlar üçün sətirə düşməyə imkan verir */
+  align-items: center; /* Şaquli mərkəzləşdirir */
+  gap: 15px; /* Elementlər arasında boşluq */
+  list-style: none; /* Nöqtələri silir */
+  padding: 0; /* Standart boşluğu silir */
+  margin: 0; /* Standart boşluğu silir */
+}
+
+.blog-post-meta ul li {
+  display: flex;
+  align-items: center; /* İkon və mətn şaquli mərkəzləşdirilsin */
+}
+
+.like-btn {
+  background: transparent;
+  border: none;
+  color: #e4d804;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s ease;
+}
+
+.like-btn:hover {
+  color: #e4d804;
+}
+
+.likes-count {
+  font-weight: bold;
+}

@@ -36,32 +36,36 @@
           @foreach ($blogs as $blog )
           <div class="blog-post-item">
             <div class="blog-post-thumb">
-              <a href="blog-details.html"><img src="{{ Storage::url($blog->image) }}" alt="Blog-image" /></a>
+              <a href="{{route('blog_details',['id' => $blog->id])}}"><img src="{{ Storage::url($blog->image) }}" alt="Blog Image" class="custom-image"> </a>
             </div>
             <div class="blog-post-content">
-              <span class="date"><i class="far fa-clock"></i> 10 Mar 2021</span>
+              <span class="date"><i class="far fa-clock"></i> {{$blog->created_at}}</span>
               <h2 class="title">
-                <a href="blog-details.html">{{$blog->content}}</a>
+                <a href="{{route('blog_details',['id' => $blog->id])}}">{{$blog->content}}</a>
               </h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididun labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip exesa commodo consequat. Duis aute
-                irure dolor in reprehend .
+             {{$blog->description}}
               </p>
               <div class="blog-post-meta">
                 <ul>
                   <li>
                     <i class="far fa-user"></i> by <a href="#">{{$blog->author}}</a>
                   </li>
-                  <li><i class="far fa-thumbs-up"></i>{{$blog->likes}}</li>
+                  <li id="blog-{{ $blog->id }}">
+    <button 
+        class="like-btn" 
+        data-id="{{ $blog->id }}" 
+        style="border: 1px solid gray; padding: 5px; border-radius: 5px; cursor: pointer;">
+        <i class="far fa-thumbs-up" style="color: gray;"></i>
+        <span class="likes-count">{{ $blog->likes }}</span>
+    </button>
+</li>
                   <li>
-                    <i class="far fa-comments"></i><a href="#">{{$blog->comments_count}} Comments</a>
+                    <i class="far fa-comments"></i><a href="{{route('blog_details',['id' => $blog->id])}}">{{$blog->comments_count}} Comments</a>
                   </li>
                 </ul>
                 <div class="read-more">
-                  <a href="{{route('blog_details')}}">Read More <i class="fas fa-angle-double-right"></i></a>
+                  <a href="{{route('blog_details',['id' => $blog->id])}}">Read More <i class="fas fa-angle-double-right"></i></a>
                 </div>
               </div>
             </div>
@@ -132,4 +136,65 @@
 </main>
 <!-- main-area-end -->
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const likeButtons = document.querySelectorAll('.like-btn');
+
+    likeButtons.forEach(button => {
+        const blogId = button.getAttribute('data-id');
+        const likesCountSpan = button.querySelector('.likes-count');
+        const likeIcon = button.querySelector('i');
+
+        // LocalStorage-də vəziyyəti yoxla
+        let isLiked = localStorage.getItem(`liked_blog_${blogId}`) === 'true';
+
+        // İlk görünüşü tənzimlə
+        if (isLiked) {
+            button.style.border = '1px solid blue';
+            likeIcon.style.color = 'blue';
+        }
+
+        button.addEventListener('click', function () {
+            // İstifadəçi unlike etmək istəyirsə
+            const url = isLiked 
+                ? `/blogs/${blogId}/unlike` // Unlike üçün URL
+                : `/blogs/${blogId}/like`;  // Like üçün URL
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.likes !== undefined) {
+                        // Yeni like sayını yenilə
+                        likesCountSpan.textContent = data.likes;
+
+                        // Vəziyyəti dəyiş
+                        isLiked = !isLiked;
+
+                        // Görünüşü yenilə
+                        if (isLiked) {
+                            button.style.border = '1px solid blue';
+                            likeIcon.style.color = 'blue';
+                            localStorage.setItem(`liked_blog_${blogId}`, 'true');
+                        } else {
+                            button.style.border = '';
+                            likeIcon.style.color = '';
+                            localStorage.setItem(`liked_blog_${blogId}`, 'false');
+                        }
+                    } else {
+                        console.error('Like statusunu dəyişmək mümkün olmadı.');
+                    }
+                })
+                .catch(error => console.error('AJAX error:', error));
+        });
+    });
+});
+
+
+</script>
 @endsection

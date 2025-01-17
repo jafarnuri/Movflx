@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Comment;
 use App\Models\Communication;
 use App\Models\Social;
 
@@ -44,12 +45,18 @@ class FrondController extends Controller
 
     public function mobie_details()
     {
+       
         return view('frond.mobie-details');
     }
 
-    public function blog_details()
+    public function blog_details($id)
     {
-        return view('frond.blog-details');
+       
+        $blog = Blog::with('comments')->findOrFail($id);
+     //   $blog = Blog::findOrFail($id);
+        $comments = Comment::where('blog_id', $id)->get();
+        $blogcategories = BlogCategory::withCount('blogs')->get();
+        return view('frond.blog-details', compact('blogcategories','blog','comments'));
     }
 
     public function login()

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AboutRequest;
 use App\Http\Requests\CommunicationRequest;
 use App\Http\Requests\SocialRequest;
+use App\Models\About;
 use App\Models\Communication;
+use App\Models\MovieCategory;
 use App\Models\Social;
 
 class SettingsController extends Controller
@@ -44,5 +47,23 @@ class SettingsController extends Controller
         $communication->update($validate);
 
         return redirect()->route('admin.communication_show');
+    }
+    
+    public function about_show()
+    {
+        $about = About::first();
+        $category=MovieCategory::all();
+
+        return view('admin.settings.about', compact('about','category'));
+    }
+
+    public function about_update(AboutRequest $request)
+    {
+        $validate = $request->validated();
+        $about = About::first();
+
+        $about->update($validate);
+
+        return redirect()->route('admin.about_show');
     }
 }

@@ -2,3 +2,29 @@
     resize: vertical;
     max-width: 470px;
 }
+.table-responsive {
+    overflow-x: auto; /* Hərəkətə imkan verir */
+    -webkit-overflow-scrolling: touch; /* Mobil cihazlar üçün scroll düzəlişi */
+}
+#datatable-responsive {
+    table-layout: auto; /* Cədvəl sütunları öz genişliyinə uyğunlaşacaq */
+    width: 100%;
+}
+
+#datatable-responsive td, #datatable-responsive th {
+    word-wrap: break-word; /* Uzun mətnləri kəsir və alt sətirlərə keçir */
+    overflow: hidden; /* Taşan mətni gizlətmək üçün */
+    text-overflow: ellipsis; /* Taşan mətni "..." ilə göstərə bilər */
+}
+
+#datatable-responsive td.action-column {
+    white-space: nowrap; /* Action sütunundakı mətni bir sətirdə saxlamaq */
+    display: flex;
+    justify-content: space-evenly; /* Düymələri düz şəkildə göstər */
+    max-width: 250px; /* Action sütununu genişləndir */
+}
+
+#datatable-responsive td {
+    max-width: 150px; /* Diğer sütunların maksimal genişliyini təyin edin */
+    word-wrap: break-word; /* Sözləri kəsib alt sətirə keçirir */
+}

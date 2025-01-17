@@ -26,26 +26,20 @@ class BlogRequest extends FormRequest
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255',
             'content' => 'required|string|max:1500',
-            'author' => 'required|string|max:255',
-            'likes' => 'nullable|numeric|max:255',
-            'comments_count' => 'nullable|numeric|max:255',
+            'description' => 'required|string|max:2500',
+            'status' => 'required|boolean',
+            'likes' => 'nullable|integer',
+            'author' => 'nullable|string|max:255',
             'category_id' => 'required|exists:blog_categories,id',
+            'gallery.*' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048', // şəkil formatı
             
         ];
                 // `update` əməliyyatı üçün "required" olmayan validasiya
-                if ($this->isMethod('put')) {
-                    // "required" olmayanları `sometimes` olaraq təyin edirik
-                    $rules['title'] = 'sometimes|string|max:255';
-                    $rules['slug'] = 'sometimes|string|max:255';
-                    $rules['content'] = 'sometimes|numeric|min:0';
-                    $rules['author'] = 'sometimes|numeric|digits:4';
-                    $rules['likes'] = 'sometimes|numeric|min:0';
-                    $rules['comments_count'] = 'sometimes|string|max:50';
-                    $rules['category_id'] = 'sometimes|numeric|min:1';
-                    $rules['image'] = 'sometimes|image|mimes:jpg,jpeg,png,gif|max:2048';
-       
+                if ($this->isMethod('put') || $this->isMethod('patch')) {
+                    foreach ($rules as $field => $rule) {
+                        $rules[$field] = str_replace('required', 'sometimes', $rule); // "required"-i "sometimes"-lə əvəz edir
+                    }
                 }
-                return $rules;
     }
-}
+} 

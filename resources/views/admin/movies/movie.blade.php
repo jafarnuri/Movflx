@@ -13,17 +13,17 @@
                     <div class="x_title">
                         <br>
                         <br>
-                        <h2>Blogs</h2>
+                        <h2>Movies</h2>
 
                         <div class="clearfix"></div>
 
                         <div align="right">
-                            <a href="{{route('admin.blog_create')}}"><button class="btn btn-success btn-xs">Add
+                            <a href="{{route('admin.mov_create')}}"><button class="btn btn-success btn-xs">Add
                                     New</button></a>
 
                         </div>
                     </div>
-                    <div class="x_content">
+                    <div class="table-responsive">
 
 
 
@@ -39,11 +39,13 @@
                                     <th>Image</th>
                                     <th>Title</th>
                                     <th>Category</th>
-                                    <th>Content</th>
-                                    <th>Author</th>
-                                    <th>Likes</th>
-                                    <th>Comments_count</th>
+                                    <th>Release_year</th>
+                                    <th>Quality</th>
+                                    <th>Duration</th>
                                     <th>Description</th>
+                                    <th>Trailer_url</th>
+                                    <th>Movie_url</th>
+                                    <th>Status</th>
                                     <th>Action</th>
 
 
@@ -51,23 +53,25 @@
                             </thead>
 
                             <tbody>
- 
-@foreach ($blogs as $blog )
+                            @foreach ($movies as $movie )
+
 <tr>
 
 <td width="20">{{$say}}</td>
-<td><img src="{{ Storage::url($blog->image) }}" alt="Blog Image" class="custom-image"> </td>
-<td>{{$blog->title}}</td>
-<td>{{$blog->category->name}}</td>
-<td>{{$blog->content}}</td>
-<td>{{$blog->author}}</td>
-<td>{{$blog->likes}}</td>
-<td>{{$blog->comments_count}}</td>
-<td>{{$blog->description}}</td>
+<td><img src="{{ Storage::url($movie->poster_image) }}" alt="Movie Image" class="custom-image"> </td>
+<td>{{$movie->title}}</td>
+<td>{{$movie->category->name}}</td>
+<td>{{$movie->release_year}}</td>
+<td>{{$movie->quality}}</td>
+<td>{{$movie->duration}}</td>
+<td>{{$movie->description}}</td>
+<td>{{$movie->trailer_url}}</td>
+<td>{{$movie->movie_url}}</td>
+<td>{{$movie->status}}</td>
 
 <td class="action-column">
-    <a href="{{ route('admin.blog_edit', $blog->id) }}" class="btn btn-info">Edit</a>
-    <a href="{{ route('admin.blog_delete', $blog->id) }}" class="btn btn-danger"
+    <a href="{{ route('admin.mov_update', $movie->id) }}" class="btn btn-info">Edit</a>
+    <a href="{{ route('admin.mov_delete', $movie->id) }}" class="btn btn-danger"
         onclick="confirm('Are You Sure To Delete This Item?')">Delete</a>
 </td>
 </tr>

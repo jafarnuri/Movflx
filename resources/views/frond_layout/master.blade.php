@@ -7,6 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Movflx - Online Movies & TV Shows Template</title>
     <meta name="description" content="" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/gh/smarticons/icons/flaticon.css" rel="stylesheet" />
@@ -25,8 +26,8 @@
     <link rel="stylesheet" href="{{asset('/')}}frond/css/aos.css" />
     <link rel="stylesheet" href="{{asset('/')}}frond/css/slick.css" />
     <link rel="stylesheet" href="{{asset('/')}}frond/css/default.css" />
-    <link rel="stylesheet" href="{{asset('/')}}frond/css/style.css" />
     <link rel="stylesheet" href="{{asset('/')}}frond/css/responsive.css" />
+    <link rel="stylesheet" href="{{asset('/')}}frond/css/style.css" />
 </head>
 
 <body>

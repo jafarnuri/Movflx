@@ -4,8 +4,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrondController;
+use App\Http\Controllers\MovController;
 use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,12 +20,21 @@ Route::controller(FrondController::class)->group(function () {
     Route::get('/pricing', 'pricing')->name('pricing');
     Route::get('/tv_show', 'tv_show')->name('tv_show');
     Route::get('/movie-details', 'mobie_details')->name('mobie_details');
-    Route::get('/blog-details', 'blog_details')->name('blog_details');
+    Route::get('/blog-details/{id}', 'blog_details')->name('blog_details');
 
+});
+Route::controller(BlogController::class)->group(function () {
+    Route::post('/blogs/{id}/like', 'like')->name('blog.like');
+    Route::post('//blogs/{id}/unlike', 'unlike')->name('blogs.unlike');
+
+});
+Route::controller(CommentController::class)->group(function () {
+    Route::post('/blog-comment/{blog_id}', 'store')->name('comment_store');
 });
 Route::post('/login_user', [AuthController::class, 'login_user'])->name('login_user');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 
 
@@ -43,12 +54,14 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::post('/social-update', 'social_update')->name('admin.social_update');
         Route::get('/communication-show', 'communication_show')->name('admin.communication_show');
         Route::post('/communication-update', 'communication_update')->name('admin.communication_update');
+        Route::get('/about-show', 'about_show')->name('admin.about_show');
+        Route::put('/about-update', 'about_update')->name('admin.about_update');
     });
 
     Route::controller(AuthController::class)->group(function () {
-        Route::get('/register_user', 'register_user')->name('admin.register_user');
+        Route::post('/register_user', 'register_user')->name('admin.register_user');
         // İstifadəçi silmək üçün testik kodu göndərmək
-        Route::post('user/send-confirmation-email/{id}', 'sendConfirmationEmail')
+        Route::get('user/send-confirmation-email/{id}', 'sendConfirmationEmail')
             ->name('admin.user.send_confirmation_email');
         // İstifadəçi silməni təsdiq etmək üçün formu göndərmək
         Route::post('user/confirm-delete/{id}', 'confirmDelete')
@@ -59,8 +72,10 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::get('/movcategory-show', 'movcategory')->name('admin.movcategory');
         Route::get('/movcategory-create', 'movcategory_create')->name('admin.movcategory_create');
         Route::post('/movcategory-store', 'movcategory_store')->name('admin.movcategory_store');
+        Route::get('/movcategory-delete/{id}', 'mov_category_delete')->name('admin.mov_category_delete');
         Route::get('/blogcategory-show', 'blogcategory')->name('admin.blogcategory');
         Route::get('/blogcategory-create', 'blogcategory_create')->name('admin.blogcategory_create');
+        Route::get('/blogcategory-delete/{id}', 'blog_category_delete')->name('admin.blog_category_delete');
         Route::post('/blogcategory-store', 'blogcategory_store')->name('admin.blogcategory_store');
     });
 
@@ -71,6 +86,17 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::get('/blog-delete/{id}', 'delete')->name('admin.blog_delete');
         Route::get('/blog-edit/{id}', 'blog_edit')->name('admin.blog_edit');
         Route::put('/blog-update/{id}', 'blog_update')->name('admin.blog_update');
+       
+    });
+
+    Route::controller(MovController::class)->group(function () {
+        Route::get('/mov-show', 'mov_show')->name('admin.mov_show');
+        Route::get('/mov-create', 'mov_create')->name('admin.mov_create');
+        Route::post('/mov-store', 'mov_store')->name('admin.mov_store');
+        Route::get('/mov-update/{id}', 'mov_update')->name('admin.mov_update');
+        Route::get('/mov-delete/{id}', 'mov_delete')->name('admin.mov_delete');
+        Route::post('/mov-edit/{id}', 'mov_edit')->name('admin.mov_edit');
+       
     });
 
     Route::get('/contact-show', [ContactController::class, 'contact_show'])->name('admin.contact_show');

@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('blogs', function (Blueprint $table) {
-            $table->boolean('status')->nullabl()->after('category_id'); // Yeni sütun
+        Schema::table('comments', function (Blueprint $table) {
+            $table->string('image')->nullable(); // Şəkil yolunu əlavə et
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('blogs', function (Blueprint $table) {
-            //
+        Schema::table('comments', function (Blueprint $table) {
+            $table->dropColumn('image');
         });
     }
 };

@@ -49,7 +49,7 @@
                <td>{{$categories->status}}</td>
                <td>
                
-               <a href="" class="btn btn-danger" >Delete</a>
+               <a href="{{ route('admin.blog_category_delete', $categories->id) }}" class="btn btn-danger" >Delete</a>
                </td>
              </tr>
              <input type="hidden" {{$say++}}>

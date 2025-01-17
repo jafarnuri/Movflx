@@ -32,6 +32,13 @@
           </li>
         </ul>
       </div>
+      <div class="collapse" id="form-elements">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.about_show')}}">About</a>
+          </li>
+        </ul>
+      </div>
 
     </li>
 
@@ -85,16 +92,8 @@
     </li>
 
 
-
     <li class="nav-item">
-      <a class="nav-link" href="">
-        <i class="fa fa-tags"></i>
-        <span class="menu-title">Category</span>
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" href="">
+      <a class="nav-link" href="{{route('admin.mov_show')}}">
         <i class="fa fa-film"></i>
         <span class="menu-title">Movies</span>
       </a>

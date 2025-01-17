@@ -26,6 +26,16 @@ $category = MovieCategory::all();
 
         return redirect()->route('admin.movcategory_create');
     }
+
+    public function mov_category_delete($id)
+    {
+        $blog = MovieCategory::findOrFail($id);
+
+        // Avtomobili silirik
+        $blog->delete();
+
+        return redirect()->route('admin.movcategory');
+    }
     public function blogcategory()
     {
 $category = BlogCategory::all();
@@ -48,5 +58,13 @@ $category = BlogCategory::all();
         return redirect()->route('admin.blogcategory_create');
     }
 
-    
+    public function blog_category_delete($id)
+    {
+        $blog = BlogCategory::findOrFail($id);
+
+        // Avtomobili silirik
+        $blog->delete();
+
+        return redirect()->route('admin.blogcategory');
+    }
 }
