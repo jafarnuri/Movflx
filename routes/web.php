@@ -19,7 +19,7 @@ Route::controller(FrondController::class)->group(function () {
     Route::get('/movie', 'movie')->name('movie');
     Route::get('/pricing', 'pricing')->name('pricing');
     Route::get('/tv_show', 'tv_show')->name('tv_show');
-    Route::get('/movie-details', 'mobie_details')->name('mobie_details');
+    Route::get('/movie-details/{id}', 'movie_details')->name('movie_details');
     Route::get('/blog-details/{id}', 'blog_details')->name('blog_details');
 
 });

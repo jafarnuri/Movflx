@@ -3031,3 +3031,32 @@ label {
 .likes-count {
   font-weight: bold;
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Avtomatik sütunlar */
+  gap: 20px; /* Şəkillər arasında məsafə */
+}
+/* Şəkil konteyneri */
+.movie-poster {
+  position: relative;
+  width: 100%; /* Konteynerin tam genişliyi */
+  height: 300px; /* Sabit hündürlük */
+  overflow: hidden; /* Artıq hissələri gizlə */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Şəkillər */
+.movie-poster img {
+  width: 100%; /* Konteynerin genişliyinə uyğun */
+  height: 100%; /* Konteynerin hündürlüyünə uyğun */
+  object-fit: cover; /* Şəkli konteynerə tam yerləşdir */
+  border-radius: 10px; /* Künclərə yuvarlaqlıq əlavə et (istəyə bağlı) */
+}
+.custom-movie-poster {
+  width: 303px; /* Sabit en */
+  height: 430px; /* Sabit hündürlük */
+  object-fit: cover; /* Şəkli konteynerə tam yerləşdir */
+  border-radius: 10px; /* İstəyə bağlı künc yuvarlaqlığı */
+}

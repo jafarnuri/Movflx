@@ -42,334 +42,53 @@
         <div class="col-lg-6">
           <div class="movie-page-meta">
             <div class="tr-movie-menu-active text-center">
-              <button class="active" data-filter="*">Animation</button>
-              <button class="" data-filter=".cat-one">Movies</button>
-              <button class="" data-filter=".cat-two">Romantic</button>
+              @foreach ($movcategories as $movcategory)
+              <button class="active" data-filter="*">{{$movcategory->name}}</button>
+              @endforeach
+        
             </div>
-            <form action="#" class="movie-filter-form">
-              <select class="custom-select">
-                <option selected>English</option>
-                <option value="1">Blueray</option>
-                <option value="2">4k Movie</option>
-                <option value="3">Hd Movie</option>
-              </select>
-            </form>
+        
           </div>
         </div>
       </div>
-      <div class="row tr-movie-active">
+      <div class="row tr-movie-active grid-container">
+        @foreach ($movie as $movies)
         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
           <div class="movie-item movie-item-three mb-50">
             <div class="movie-poster">
-              <img src="{{asset('/')}}frond/img/poster/ucm_poster01.jpg" alt="" />
+              <img src="{{ Storage::url($movies->poster_image) }}" alt="" />
               <ul class="overlay-btn">
-                <li class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+          
+                <li>
+                  <a href="{{$movies->trailer_url}}" class="popup-video btn">Watch Now</a>
                 </li>
                 <li>
-                  <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a>
-                </li>
-                <li>
-                  <a href="movie-details.html" class="btn">Details</a>
+                  <a href="{{route('movie_details',['id' => $movies->id])}}" class="btn">Details</a>
                 </li>
               </ul>
             </div>
             <div class="movie-content">
               <div class="top">
                 <h5 class="title">
-                  <a href="movie-details.html">Women's Day</a>
+                  <a href="{{route('movie_details',['id' => $movies->id])}}">{{$movies->title}}</a>
                 </h5>
-                <span class="date">2021</span>
+                <span class="date">{{$movies->release_year}}</span>
               </div>
               <div class="bottom">
                 <ul>
-                  <li><span class="quality">hd</span></li>
+                  <li><span class="quality">{{$movies->quality}}</span></li>
                   <li>
-                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
+                    <span class="duration"><i class="far fa-clock"></i> {{$movies->duration}} min</span>
+                    
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
-          <div class="movie-item movie-item-three mb-50">
-            <div class="movie-poster">
-              <img src="{{asset('/')}}frond/img/poster/ucm_poster02.jpg" alt="" />
-              <ul class="overlay-btn">
-                <li class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a>
-                </li>
-                <li>
-                  <a href="movie-details.html" class="btn">Details</a>
-                </li>
-              </ul>
-            </div>
-            <div class="movie-content">
-              <div class="top">
-                <h5 class="title">
-                  <a href="movie-details.html">The Perfect Match</a>
-                </h5>
-                <span class="date">2021</span>
-              </div>
-              <div class="bottom">
-                <ul>
-                  <li><span class="quality">4k</span></li>
-                  <li>
-                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
-          <div class="movie-item movie-item-three mb-50">
-            <div class="movie-poster">
-              <img src="{{asset('/')}}frond/img/poster/ucm_poster03.jpg" alt="" />
-              <ul class="overlay-btn">
-                <li class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a>
-                </li>
-                <li>
-                  <a href="movie-details.html" class="btn">Details</a>
-                </li>
-              </ul>
-            </div>
-            <div class="movie-content">
-              <div class="top">
-                <h5 class="title">
-                  <a href="movie-details.html">The Dog Woof</a>
-                </h5>
-                <span class="date">2021</span>
-              </div>
-              <div class="bottom">
-                <ul>
-                  <li><span class="quality">hd</span></li>
-                  <li>
-                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
-          <div class="movie-item movie-item-three mb-50">
-            <div class="movie-poster">
-              <img src="{{asset('/')}}frond/img/poster/ucm_poster04.jpg" alt="" />
-              <ul class="overlay-btn">
-                <li class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a>
-                </li>
-                <li>
-                  <a href="movie-details.html" class="btn">Details</a>
-                </li>
-              </ul>
-            </div>
-            <div class="movie-content">
-              <div class="top">
-                <h5 class="title">
-                  <a href="movie-details.html">The Easy Reach</a>
-                </h5>
-                <span class="date">2021</span>
-              </div>
-              <div class="bottom">
-                <ul>
-                  <li><span class="quality">hd</span></li>
-                  <li>
-                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
-          <div class="movie-item movie-item-three mb-50">
-            <div class="movie-poster">
-              <img src="{{asset('/')}}frond/img/poster/ucm_poster05.jpg" alt="" />
-              <ul class="overlay-btn">
-                <li class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a>
-                </li>
-                <li>
-                  <a href="movie-details.html" class="btn">Details</a>
-                </li>
-              </ul>
-            </div>
-            <div class="movie-content">
-              <div class="top">
-                <h5 class="title">
-                  <a href="movie-details.html">The Cooking</a>
-                </h5>
-                <span class="date">2021</span>
-              </div>
-              <div class="bottom">
-                <ul>
-                  <li><span class="quality">hd</span></li>
-                  <li>
-                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-two">
-          <div class="movie-item movie-item-three mb-50">
-            <div class="movie-poster">
-              <img src="{{asset('/')}}frond/img/poster/ucm_poster06.jpg" alt="" />
-              <ul class="overlay-btn">
-                <li class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a>
-                </li>
-                <li>
-                  <a href="movie-details.html" class="btn">Details</a>
-                </li>
-              </ul>
-            </div>
-            <div class="movie-content">
-              <div class="top">
-                <h5 class="title">
-                  <a href="movie-details.html">The Hikaru Night</a>
-                </h5>
-                <span class="date">2021</span>
-              </div>
-              <div class="bottom">
-                <ul>
-                  <li><span class="quality">hd</span></li>
-                  <li>
-                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
-          <div class="movie-item movie-item-three mb-50">
-            <div class="movie-poster">
-              <img src="{{asset('/')}}frond/img/poster/ucm_poster07.jpg" alt="" />
-              <ul class="overlay-btn">
-                <li class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a>
-                </li>
-                <li>
-                  <a href="movie-details.html" class="btn">Details</a>
-                </li>
-              </ul>
-            </div>
-            <div class="movie-content">
-              <div class="top">
-                <h5 class="title">
-                  <a href="movie-details.html">The Life Quotes</a>
-                </h5>
-                <span class="date">2021</span>
-              </div>
-              <div class="bottom">
-                <ul>
-                  <li><span class="quality">hd</span></li>
-                  <li>
-                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-two">
-          <div class="movie-item movie-item-three mb-50">
-            <div class="movie-poster">
-              <img src="{{asset('/')}}frond/img/poster/ucm_poster08.jpg" alt="" />
-              <ul class="overlay-btn">
-                <li class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </li>
-                <li>
-                  <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a>
-                </li>
-                <li>
-                  <a href="movie-details.html" class="btn">Details</a>
-                </li>
-              </ul>
-            </div>
-            <div class="movie-content">
-              <div class="top">
-                <h5 class="title">
-                  <a href="movie-details.html">The Beachball</a>
-                </h5>
-                <span class="date">2021</span>
-              </div>
-              <div class="bottom">
-                <ul>
-                  <li><span class="quality">hd</span></li>
-                  <li>
-                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        @endforeach
+        
+
       </div>
       <div class="row">
         <div class="col-12">
@@ -391,7 +110,7 @@
   <!-- movie-area-end -->
 
   <!-- newsletter-area -->
-  <section class="newsletter-area newsletter-bg" data-background="{{asset('/')}}frond/img/bg/newsletter_bg.jpg">
+  <!-- <section class="newsletter-area newsletter-bg" data-background="{{asset('/')}}frond/img/bg/newsletter_bg.jpg">
     <div class="container">
       <div class="newsletter-inner-wrap">
         <div class="row align-items-center">
@@ -410,7 +129,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- newsletter-area-end -->
 </main>
 <!-- main-area-end -->

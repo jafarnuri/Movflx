@@ -220,7 +220,7 @@
 
 
     <!-- newsletter-area -->
-    <section class="newsletter-area newsletter-bg" data-background="{{asset('/')}}frond/img/bg/newsletter_bg.jpg">
+    <!-- <section class="newsletter-area newsletter-bg" data-background="{{asset('/')}}frond/img/bg/newsletter_bg.jpg">
         <div class="container">
             <div class="newsletter-inner-wrap">
                 <div class="row align-items-center">
@@ -239,7 +239,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- newsletter-area-end -->
 
 </main>

@@ -6,13 +6,17 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Comment;
 use App\Models\Communication;
+use App\Models\Movie;
+use App\Models\MovieCategory;
 use App\Models\Social;
 
 class FrondController extends Controller
 {
     public function home()
     {
-        return view('frond.home');
+        $movie = Movie::all();
+        $movcategories = MovieCategory::all();
+        return view('frond.home', compact('movie','movcategories'));
     }
 
     public function contact()
@@ -30,24 +34,25 @@ class FrondController extends Controller
 
     public function movie()
     {
-        return view('frond.movie');
+        $movie = Movie::all();
+        $movcategories = MovieCategory::all();
+        return view('frond.movie', compact('movie','movcategories'));
     }
 
-    public function pricing()
+    public function movie_details($id)
     {
-        return view('frond.pricing');
+        $movies = Movie::findOrFail($id);
+        $movie = Movie::all();
+        return view('frond.movie-details',compact('movies','movie'));
     }
 
     public function tv_show()
     {
-        return view('frond.tv-show');
+        $movie = Movie::all();
+        $movcategories = MovieCategory::all();
+        return view('frond.tv-show',compact('movie','movcategories'));
     }
 
-    public function mobie_details()
-    {
-       
-        return view('frond.mobie-details');
-    }
 
     public function blog_details($id)
     {
